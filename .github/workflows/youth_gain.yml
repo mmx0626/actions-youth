@@ -32,6 +32,12 @@ jobs:
           node youth_gain.js
         env:
           YOUTH_START: ${{ secrets.YOUTH_START }}
-          YOUTH_LOOK: ${{ secrets.YOUTH_LOOK }}
+      - name: '运行 【中青浏览赚】'
+        if: env.YOUTH_LOOK
+        run: |
+          node youth_gain.js
+        env:
+          YOUTH_START: ${{ secrets.YOUTH_LOOK }}
+
 
    
