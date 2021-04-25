@@ -6,7 +6,7 @@ name: youth_gain(中青浏览赚)
 on:
   workflow_dispatch:
   schedule:
-     - cron: '0 8 * * *'
+     - cron: '0 0 * * *'
   watch:
     types: youth_gain
 jobs:
@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     env:
-      YOUTH_STAR: ${{ secrets.YOUTH_STAR }}
-      YOUTH_LOO: ${{ secrets.YOUTH_LOO }}
+      YOUTH_START: ${{ secrets.YOUTH_START }}
+      YOUTH_END: ${{ secrets.YOUTH_END }}
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js 12.x
@@ -27,8 +27,11 @@ jobs:
           npm install
           
       - name: '运行 【中青浏览赚】'
-      node youth_gain.js
-
-
+        if: env.YOUTH_START
+        run: |
+          node youth_gain.js
+        env:
+          YOUTH_START: ${{ secrets.YOUTH_START }}
+          YOUTH_END: ${{ secrets.YOUTH_END }}
 
    
