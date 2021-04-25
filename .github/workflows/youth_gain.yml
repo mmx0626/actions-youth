@@ -32,7 +32,7 @@ jobs:
           node youth_gain.js
         env:
           YOUTH_START: ${{ secrets.YOUTH_START }}
-          YOUTH_START: ${{ secrets.YOUTH_LOOK }}
+          YOUTH_LOOK: ${{ secrets.YOUTH_LOOK }}
 
 
    
