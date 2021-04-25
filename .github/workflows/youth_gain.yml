@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     env:
-      YOUTH_START: ${{ secrets.YOUTH_START }}
-      YOUTH_LOOK: ${{ secrets.YOUTH_LOOK }}
+      YOUTH_STAR: ${{ secrets.YOUTH_STAR }}
+      YOUTH_LOO: ${{ secrets.YOUTH_LOO }}
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js 12.x
@@ -27,12 +27,8 @@ jobs:
           npm install
           
       - name: '运行 【中青浏览赚】'
-        if: env.YOUTH_START
-        run: |
-          node youth_gain.js
-        env:
-          YOUTH_START: ${{ secrets.YOUTH_START }}
-          YOUTH_LOOK: ${{ secrets.YOUTH_LOOK }}
+      node youth_gain.js
+
 
 
    
