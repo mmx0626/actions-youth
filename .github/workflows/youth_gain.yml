@@ -6,7 +6,7 @@ name: youth_gain(中青浏览赚)
 on:
   workflow_dispatch:
   schedule:
-     - cron: '0 0 * * *'
+     - cron: '0 8 * * *'
   watch:
     types: youth_gain
 jobs:
@@ -32,11 +32,6 @@ jobs:
           node youth_gain.js
         env:
           YOUTH_START: ${{ secrets.YOUTH_START }}
-      - name: '运行 【中青浏览赚】'
-        if: env.YOUTH_LOOK
-        run: |
-          node youth_gain.js
-        env:
           YOUTH_START: ${{ secrets.YOUTH_LOOK }}
 
 
